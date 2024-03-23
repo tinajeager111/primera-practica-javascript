@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIZZA DEVELOPER</title>
+</head>
+<style>
+            body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            }
+
+            .video-container {
+            position: relative;
+            height: 100vh;
+            }
+
+            #video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            }
+
+            .button-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            }
+
+            .Btn {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition-duration: .3s;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+            background-color: rgb(255, 65, 65);
+            }
+
+            .sign {
+            width: 100%;
+            transition-duration: .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            }
+
+            .sign svg {
+            width: 17px;
+            }
+
+            .sign svg path {
+            fill: white;
+            }
+
+            .text {
+            position: absolute;
+            right: 0%;
+            width: 0%;
+            opacity: 0;
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition-duration: .3s;
+            }
+
+            .Btn:hover {
+            width: 135px;
+            border-radius: 40px;
+            transition-duration: .3s;
+            }
+
+            .Btn:hover .sign {
+            width: 30%;
+            transition-duration: .3s;
+            padding-left: 20px;
+            }
+
+            .Btn:hover .text {
+            opacity: 1;
+            width: 70%;
+            transition-duration: .3s;
+            padding-right: 10px;
+            }
+
+            .Btn:active {
+            transform: translate(2px, 2px);
+            }
+
+            #popup {
+                width:30%;
+                height: 70%;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(255, 65, 65);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+            z-index: 1000;
+            }
+
+            h2{
+                color: white;
+                font-family: sans-serif;
+                font-weight: 800;
+                margin: 3%;
+            }
+
+            .texto{
+                color: white;
+                font-size: 23px;
+                font-family: sans-serif ;
+                 font-weight: 700;
+            }
+            
+            .espacio{
+                margin: 5%;
+                display: grid;
+            }
+
+            .espacio-btn{
+
+                display: flex;
+            }
+
+            .espacio-resultado{
+                margin: 5%;
+
+            }
+
+            
+            .indicadores{
+                width: 40%;
+                height: 120%;
+            }
+
+            .indicadores-btn{
+                width: 30%;
+                height: 100%;
+                margin: 9%;
+
+            }
+
+
+
+            .texto-ingredientes{
+            
+                color: white;
+                font-size: 17px;
+                font-family: sans-serif ;
+                 font-weight: 700;
+            }
+
+            .texto-p{
+            
+            color: white;
+            font-size: 14px;
+            font-family: sans-serif ;
+            
+        }
+
+            .extras-espacio{
+                margin-top: 2%;
+            }
+
+            .flex{
+                display: flex;
+            }
+
+            .indicadores-btn {
+            padding: 1em 2em;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color:rgb(255, 65, 65);
+;
+            transition: all 500ms;
+            font-size: 18px;
+            position: relative;
+            overflow: hidden;
+            outline: 2px solid rgb(255, 65, 65);
+;
+            }
+
+            .indicadores-btn:hover {
+            color: #ffffff;
+            transform: scale(1.05);
+            outline: 2px solid rgb(255, 65, 65);
+;
+            box-shadow: 2px 3px 10px -2px rgb(255, 65, 65);
+;
+            }
+
+            .indicadores-btn::before {
+            content: "";
+            position: absolute;
+            left: -50px;
+            top: 0;
+            width: 0;
+            height: 100%;
+            background-color: rgb(255, 65, 65);
+            transform: skewX(45deg);
+            z-index: -1;
+            transition: width 500ms;
+            }
+
+            .indicadores-btn:hover::before {
+            width: 200%;
+            }
+
+
+</style>
+<body>
+    <div class="video-container">
+        <video id="video-background" autoplay muted loop>
+          <source src="media/pizza_-_123629 (Original).mp4" type="video/mp4">
+        </video>
+
+
+
+        <div class="button-container">
+          <button id="openFormButton" class="Btn">
+            <div class="sign">
+         <svg fill="#ffffff" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>< id="SVGRepo_iconCarrier"><path d="M158.87.15c-16.16-1.52-31.2 8.42-35.33 24.12l-14.81 56.27c187.62 5.49 314.54 130.61 322.48 317l56.94-15.78c15.72-4.36 25.49-19.68 23.62-35.9C490.89 165.08 340.78 17.32 158.87.15zm-58.47 112L.55 491.64a16.21 16.21 0 0 0 20 19.75l379-105.1c-4.27-174.89-123.08-292.14-299.15-294.1zM128 416a32 32 0 1 1 32-32 32 32 0 0 1-32 32zm48-152a32 32 0 1 1 32-32 32 32 0 0 1-32 32zm104 104a32 32 0 1 1 32-32 32 32 0 0 1-32 32z"></path></svg>
+            
+
+            </div>
+            <div class="text">CLICK</div>
+          </button>
+        </div>
+        <div id="popup" style="display: none;" >
+          
+                <h2>ORDENE SU PIZZA</h2>
+
+                <form  id="form">
+                      <div class="espacio">
+                        <label for="tamaño" class="texto">Elija el tamaño</label>
+                        <select class="indicadores" id="tamaño">
+                            <option value="">---</option>
+                            <option value="pequeña">pequeña (simple)</option>
+                            <option value="mediana">mediana (simple)</option>
+                            <option value="grande">grande (simple)</option>
+                        </select>
+                        </div> 
+                        <div class="espacio">
+                           
+                            <label for="extras" class="texto">¿Como desea su pizza?</label>
+                            <p class="texto-p">Puede dejarla simple (solo salsa y queso) o agregarle extras adicionales (costo dependera del tamaño)</p>
+                            <div class="flex">
+                           
+                             <div class="extras-espacio">
+                             <label for="champiñones" name="ing1" class="texto-ingredientes">Champiñoes</label>
+                             <input type="checkbox" value="1" id="champiñones" class="checkbox">
+                           </div>
+
+                           <div class="extras-espacio">
+                            <label for="pepperoni"  name="ing2" class="texto-ingredientes">Pepperoni</label>
+                            <input type="checkbox" value="1" id="pepperoni" class="checkbox">
+                          </div>
+                            </div>
+
+                            <div class="flex">
+                                <div class="extras-espacio">
+                                <label for="jamon" name="ing3" class="texto-ingredientes">Jamon</label>
+    
+                                <input type="checkbox" value="1" id="jamon" class="checkbox">
+                                 </div>
+                                 <div class="extras-espacio">
+                                 <label for="maiz" name="ing4" class="texto-ingredientes">Maiz</label>
+                                 <input type="checkbox" value="1" id="maiz" class="checkbox">
+                               </div>
+    
+                               <div class="extras-espacio">
+                                <label for="aceitunas" name="ing5" class="texto-ingredientes">Aceitunas</label>
+                                <input type="checkbox" value="1" id="aceitunas" class="checkbox">
+                              </div>
+
+                              <div class="extras-espacio">
+                                <label for="anchoas" name="ing6" class="texto-ingredientes">Anchoas</label>
+                                <input type="checkbox" value="1" id="anchoas" class="checkbox">
+                              </div>
+
+                                </div>
+
+                        </div> 
+                        <div class="espacio-resultado">
+                        <h3 class="texto">Presione el boton para finalizar su pedido:</h3>
+                        <div id="mostrar" class="texto-p"></p>
+                        </div>
+
+
+                         <div class="espacio-btn">
+
+                    <input type="submit" id="closeFormButton" class="indicadores-btn"  value="ver pedido">
+                    </div>
+
+                </form>
+
+              
+               
+            </div>
+
+      </div>
+    
+
+     
+
+
+    <script src="js/programa.js"></script>
+  
+    <script src="js/ordenePizza.js"></script>
+</body>
+</html>
